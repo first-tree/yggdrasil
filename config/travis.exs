@@ -10,7 +10,7 @@ config :yggdrasil, Yggdrasil.Endpoint,
 config :logger, level: :warn
 
 # Configure your database
-config :yggdrasil, HelloPhoenix.Repo,
+config :yggdrasil, Yggdrasil.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
   password: "",
