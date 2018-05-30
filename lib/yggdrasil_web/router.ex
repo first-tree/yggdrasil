@@ -19,8 +19,20 @@ defmodule YggdrasilWeb.Router do
     get "/", PageController, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", YggdrasilWeb do
-  #   pipe_through :api
-  # end
+
+  scope "/graph" do
+    pipe_through :api
+
+    forward "/", Absinthe.Plug,
+      schema: YggdrasilWeb.Schema
+  end
+
+  if Mix.env == :dev do
+    scope "/graphiql" do
+      pipe_through :api
+
+      forward "/", Absinthe.Plug.GraphiQL,
+        schema: YggdrasilWeb.Schema
+    end
+  end
 end
