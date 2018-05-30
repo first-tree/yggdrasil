@@ -1,4 +1,7 @@
 defmodule Yggdrasil.Application do
+  @moduledoc """
+  Module for Application
+  """
   use Application
 
   # See https://hexdocs.pm/elixir/Application.html

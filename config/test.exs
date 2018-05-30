@@ -6,14 +6,11 @@ config :yggdrasil, YggdrasilWeb.Endpoint,
   http: [port: 4001],
   server: false
 
+config :yggdrasil, btc_rpc: GoldMock
+
 # Print only warnings and errors during test
 config :logger, level: :warn
 
-# Configure your database
-config :yggdrasil, Yggdrasil.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "yggdrasil_test",
-  hostname: "localhost",
-  pool: Ecto.Adapters.SQL.Sandbox
+# Finally import the config/test.secret.exs
+# which should be versioned separately.
+import_config "test.secret.exs"

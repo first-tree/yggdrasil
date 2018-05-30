@@ -20,7 +20,7 @@ defmodule Yggdrasil.Mixfile do
   def application do
     [
       mod: {Yggdrasil.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :faker, :absinthe]
     ]
   end
 
@@ -34,13 +34,22 @@ defmodule Yggdrasil.Mixfile do
   defp deps do
     [
       {:phoenix, "~> 1.3.2"},
+      {:plug, "1.5.0"},
       {:phoenix_pubsub, "~> 1.0"},
       {:phoenix_ecto, "~> 3.2"},
       {:postgrex, ">= 0.0.0"},
       {:phoenix_html, "~> 2.10"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
-      {:cowboy, "~> 1.0"}
+      {:cowboy, "~> 1.0"},
+      {:absinthe, "~> 1.4.0", override: true},
+      {:absinthe_plug, "~> 1.4.0"},
+      {:absinthe_phoenix, "~> 1.4.0"},
+      {:absinthe_ecto, git: "https://github.com/absinthe-graphql/absinthe_ecto.git"},
+      {:faker, "~> 0.10"},
+      {:mock, "~> 0.3.0", only: :test},
+      {:credo, "~> 0.9.1", only: [:dev, :test], runtime: false},
+      {:gold, "~> 0.16"}
     ]
   end
 

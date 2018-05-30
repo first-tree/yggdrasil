@@ -1,0 +1,18 @@
+language: elixir
+elixir: '1.6.5'
+
+addons:
+  postgresql: '9.6'
+
+services:
+  - postgresql
+
+before_install:
+  - cp config/travis.exs config/test.secret.exs
+
+before_script:
+  - mix do ecto.create, ecto.migrate
+
+script:
+  - mix test
+  - mix credo
