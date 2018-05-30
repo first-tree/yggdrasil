@@ -1,4 +1,7 @@
 defmodule Yggdrasil.MerchantApplication do
+  @moduledoc """
+  Schema for MerchantApplication
+  """
   use Ecto.Schema
   import Ecto.Changeset
 
